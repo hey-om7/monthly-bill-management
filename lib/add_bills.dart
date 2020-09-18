@@ -1,6 +1,8 @@
+import 'package:bills_managment_flutter/add_bill2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class AddBill extends StatelessWidget {
   final focus = FocusNode();
@@ -32,16 +34,27 @@ class AddBill extends StatelessWidget {
                     },
 
 
-                    style: GoogleFonts.mcLaren(
-                    color: Colors.white,
-                    fontSize: 30),
+            
 
-                    // TextStyle(
+
+
+
+                    // style:TextStyle(
                     //     color: Colors.white,
                     //     fontSize: 30,
                     //     fontWeight: FontWeight.w600,
                     //
                     // ),
+
+                        style: GoogleFonts.getFont('McLaren',
+
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600,
+                        ),
+
+
+
                     decoration: InputDecoration(
                         border: InputBorder.none,
                         //fillColor: Colors.grey[900],
@@ -102,39 +115,58 @@ class AddBill extends StatelessWidget {
                                     keyboardType: TextInputType.number,
 
                                     decoration: InputDecoration(
-                                      border: InputBorder.none
+                                      border: InputBorder.none,
+                                      hintText: '200',
+
+
+
+
+                                      hintStyle: GoogleFonts.getFont('McLaren',
+
+                                      color: Colors.green,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                     ),
                                   ),
                                 )
                             ),
-                            Text('Rs',style: TextStyle(
+                            Text('₹',style: TextStyle(
                                 fontSize: 35
                             ),)
                           ],
                         ),
                       ),
-                      Container(
-                        width: 200,
-                        margin: EdgeInsets.all(10),
-                        padding: EdgeInsets.all(10),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, new MaterialPageRoute(builder: (context)=>AdditionalPg()));
 
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [BoxShadow(
-                            blurRadius: 5
-                          )
+                        },
 
-                          ]
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('Attach Image of Bill'),
-                            SizedBox(width: 10,),
 
-                            Icon(Icons.camera_alt)
-                          ],
+                        child: Container(
+                          width: 200,
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [BoxShadow(
+                              blurRadius: 5
+                            )
+
+                            ]
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Attach Image of Bill'),
+                              SizedBox(width: 10,),
+
+                              Icon(Icons.camera_alt)
+                            ],
+                          ),
                         ),
                       ),
                       Expanded(

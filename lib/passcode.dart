@@ -19,7 +19,8 @@ class LockScr extends StatelessWidget {
                   colors: [Colors.yellow[900], Colors.yellow[700]])),
           child: Center(
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.3,
+              width: MediaQuery.of(context).size.width * 0.5,
+              height: MediaQuery.of(context).size.height*0.065,
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
@@ -29,13 +30,29 @@ class LockScr extends StatelessWidget {
                         blurRadius: 10,
                         offset: Offset(5, 2))
                   ]),
-              child: TextField(
+              child: TextFormField(
+                autofocus: true,
                 textAlign: TextAlign.center,
+                textAlignVertical: TextAlignVertical.center,
+
                 keyboardType: TextInputType.number,
                 obscureText: true,
+                obscuringCharacter: '*',
+                style: TextStyle(
+                  fontSize: 40
+                ),
                 decoration: InputDecoration(
-                    border: InputBorder.none, hintText: 'Passcode'),
-                onSubmitted: (text) {
+                    border: InputBorder.none,
+
+                    hintText: 'Passcode',
+                  hintStyle: TextStyle(
+
+                    fontSize: 25
+                  )
+
+
+                ),
+                onFieldSubmitted: (text) {
                   print(text);
                   if (text == '1234') {
                     print("passed");
